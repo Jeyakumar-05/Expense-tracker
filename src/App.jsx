@@ -1,9 +1,18 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./assets/css/index.css";
+
+//Layouts 
+import Main, { mainLoader } from "./layouts/Main";
+
+//Routes
 import DashBoard, { dashboardLoader } from "./pages/DashBoard";
 import Error from "./pages/Error";
-import Main, { mainLoader } from "./layouts/Main";
-import "./assets/css/index.css"
+
+//Actions
+import { logoutAction } from "./actions/logout";
+
+
 
 const router = createBrowserRouter([
   {
@@ -17,6 +26,10 @@ const router = createBrowserRouter([
         element: <DashBoard />,
         loader: dashboardLoader,
         errorElement: <Error />,
+      },
+      {
+        path: "logout",
+        action: logoutAction,
       },
     ],
   },
