@@ -2,6 +2,10 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./assets/css/index.css";
 
+//Library
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //Layouts 
 import Main, { mainLoader } from "./layouts/Main";
 
@@ -39,6 +43,7 @@ const App = () => {
   return (
     <div className="App">
       <RouterProvider router={router} />
+      <ToastContainer />
     </div>
   );
 };
