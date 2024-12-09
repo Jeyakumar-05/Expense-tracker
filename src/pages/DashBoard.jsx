@@ -1,7 +1,11 @@
 import React from "react";
-import { fetchData } from "../helper";
 import { useLoaderData } from "react-router-dom";
 
+//helpers
+import { fetchData } from "../helper";
+
+//components
+import Intro from "../components/Intro";
 
 export function dashboardLoader() {
   const userName = fetchData("userName");
@@ -9,13 +13,11 @@ export function dashboardLoader() {
 }
 
 const DashBoard = () => {
-  
-  const {userName} = useLoaderData()
+  const { userName } = useLoaderData();
 
-  return <div>
-    <h1>{userName}</h1>
-  Dashboard
-  </div>;
+  return <>
+  {userName ? <p>{userName}</p> : <Intro />}    {/* <> </> -  fragments to wrap*/}
+  </>;
 };
 
 export default DashBoard;
