@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Main, { mainLoader } from "./layouts/Main";
 
 //Routes
-import DashBoard, { dashboardLoader } from "./pages/DashBoard";
+import DashBoard, { dashboardAction, dashboardLoader } from "./pages/DashBoard";
 import Error from "./pages/Error";
 
 //Actions
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
         index: true,
         element: <DashBoard />,
         loader: dashboardLoader,
+        action:dashboardAction,
         errorElement: <Error />,
       },
       {
