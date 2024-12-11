@@ -33,6 +33,9 @@ const Intro = () => {
             <span>Create Account</span>
             <UserPlusIcon width={20}/>
           </button>
+
+       
+
         </Form>
       </div>
       <img src={illustration} alt="person with money"
