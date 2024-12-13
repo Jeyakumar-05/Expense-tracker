@@ -2,6 +2,7 @@ const generateRandomColor = () => {
   const existingBudgetsLength = fetchData("budgets")?.length ?? 0;
   return `${existingBudgetsLength * 34} 65% 50%`;
 };
+
 //Local storage
 
 //get item
