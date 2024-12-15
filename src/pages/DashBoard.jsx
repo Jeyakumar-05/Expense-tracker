@@ -6,7 +6,7 @@ import "../assets/css/index.css";
 import { toast } from "react-toastify";
 
 //helpers
-import { createBudget, fetchData } from "../helper";
+import { createBudget, fetchData, waitt } from "../helper";
 
 //components
 import Intro from "../components/Intro";
@@ -20,6 +20,12 @@ export function dashboardLoader() {
 
 //action
 export async function dashboardAction({ request }) {
+  
+  await waitt();
+  /* During this delay, the await keyword pauses the execution of the dashboardAction function 
+  until the waitt() promise resolves. */
+  // The res argument in setTimeout(res, ...) is the function that "resolves" the Promise (takes upto 0 to 1.999secs).
+
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);
 
