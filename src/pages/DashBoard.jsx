@@ -12,11 +12,13 @@ import { createBudget, createExpense, fetchData, waitt } from "../helper";
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
+import BudgetItem from "../components/BudgetItem";
 
 export function dashboardLoader() {
   const userName = fetchData("userName");
   const budgets = fetchData("budgets");
-  return { userName, budgets };
+  const expenses = fetchData("expenses");
+  return { userName, budgets, expenses};
 }
 
 //action
@@ -56,7 +58,7 @@ export async function dashboardAction({ request }) {
       //create expense
       createExpense({
         name: values.newExpense,
-        amount: values.newBudgetAmount,
+        amount: values.newExpenseAmount,
         budgetId: values.newExpenseBudget,
       });
       return toast.success(`Expense ${values.newExpense} created`);
@@ -67,7 +69,7 @@ export async function dashboardAction({ request }) {
 }
 
 const DashBoard = () => {
-  const { userName, budgets } = useLoaderData();
+  const { userName, budgets, expenses } = useLoaderData();
 
   return (
     <>
@@ -82,6 +84,14 @@ const DashBoard = () => {
                 <div className="flex-lg">
                   <AddBudgetForm />
                   <AddExpenseForm budgets={budgets} />
+                </div>
+                <h2>Existing Budgets</h2>
+                <div className="budgets">
+                  {
+                    budgets.map((budget) => (
+                      <BudgetItem key={budget.id} budget={budget} />
+                    ))
+                  }
                 </div>
               </div>
             ) : (

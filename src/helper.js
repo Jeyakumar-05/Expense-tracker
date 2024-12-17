@@ -49,3 +49,24 @@ export const createExpense = ({ name, amount, budgetId }) => {
     JSON.stringify([...existingExpenses, newItem])
   );
 };
+
+//totat spent by budget
+export const calculateSpentByBudget = (budgetId) => {
+  const expenses = fetchData("expenses") ?? [];
+  const budgetSpent = expenses.reduce((acc, expense) => {
+    if (expense.budgetId !== budgetId) return acc;
+
+    return acc += expense.amount;
+  }, 0);
+  return budgetSpent;
+};
+
+// Formatting
+
+//Format currency
+export const formatCurrency = (amt) => {
+  return amt.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+  });
+};
