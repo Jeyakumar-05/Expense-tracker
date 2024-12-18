@@ -56,7 +56,7 @@ export const calculateSpentByBudget = (budgetId) => {
   const budgetSpent = expenses.reduce((acc, expense) => {
     if (expense.budgetId !== budgetId) return acc;
 
-    return acc += expense.amount;
+    return (acc += expense.amount);
   }, 0);
   return budgetSpent;
 };
@@ -68,5 +68,13 @@ export const formatCurrency = (amt) => {
   return amt.toLocaleString("en-IN", {
     style: "currency",
     currency: "INR",
+  });
+};
+
+//Format Percentage
+export const formatPercentage = (amt) => {
+  return amt.toLocaleString("en-IN", {
+    style: "percent",
+    minimumFractionDigits: 0,
   });
 };
