@@ -17,7 +17,10 @@ import Error from "./pages/Error";
 import { logoutAction } from "./actions/logout";
 
 //components
-import ExpensesPage, { expensesLoader } from "./components/ExpensesPage";
+import ExpensesPage, {
+  expensesAction,
+  expensesLoader,
+} from "./components/ExpensesPage";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +39,8 @@ const router = createBrowserRouter([
       {
         path: "expenses",
         element: <ExpensesPage />,
-        loader:expensesLoader,
+        loader: expensesLoader,
+        action: expensesAction,
       },
       {
         path: "logout",

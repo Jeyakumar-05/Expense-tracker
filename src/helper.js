@@ -14,7 +14,13 @@ export const fetchData = (key) => {
 };
 
 // delete item
-export const deleteItem = ({ key }) => {
+export const deleteItem = ({ key, id }) => {
+  const existingData = fetchData(key);
+  if (id) {
+    const newData = existingData.filter((item) => item.id !== id);
+    return localStorage.setItem(key, JSON.stringify(newData));
+  }
+
   return localStorage.removeItem(key);
 };
 
@@ -59,6 +65,12 @@ export const calculateSpentByBudget = (budgetId) => {
     return (acc += expense.amount);
   }, 0);
   return budgetSpent;
+};
+
+//get all items from local storage
+export const getAllMatchingItems = ({ category, key, value }) => {
+  const data = fetchData(category) ?? [];
+  return data.filter((item) => item[key] === value);
 };
 
 // Formatting

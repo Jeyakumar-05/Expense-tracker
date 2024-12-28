@@ -6,7 +6,7 @@ import "../assets/css/index.css";
 import { toast } from "react-toastify";
 
 //helpers
-import { createBudget, createExpense, fetchData, waitt } from "../helper";
+import { createBudget, createExpense, deleteItem, fetchData, waitt } from "../helper";
 
 //components
 import Intro from "../components/Intro";
@@ -63,6 +63,19 @@ export async function dashboardAction({ request }) {
         budgetId: values.newExpenseBudget,
       });
       return toast.success(`Expense ${values.newExpense} created`);
+    } catch (e) {
+      throw new Error("There was a problem creating your exxpense.");
+    }
+  }
+
+  if (_action == "deleteExpense") {
+    try {
+      //delete expense
+      deleteItem({
+        key:"expenses",
+        id:values.expenseId,
+      });
+      return toast.success("Expense deleted");
     } catch (e) {
       throw new Error("There was a problem creating your exxpense.");
     }
