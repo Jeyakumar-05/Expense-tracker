@@ -1,24 +1,23 @@
-import React, { useEffect, useRef } from "react";
-import "../assets/css/index.css";
+import { useEffect, useRef } from "react";
 
-//react-router-dom
+// react-router imports
 import { useFetcher } from "react-router-dom";
 
-//icons
+// library imports
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 
 const AddExpenseForm = ({ budgets }) => {
   const fetcher = useFetcher();
+  const isSubmitting = fetcher.state === "submitting";
+
   const formRef = useRef();
   const focusRef = useRef();
 
-  const isSubmitting = fetcher.state === "submitting";
-
   useEffect(() => {
     if (!isSubmitting) {
-      //clear form
+      // clear form
       formRef.current.reset();
-      //reset focus
+      // reset focus
       focusRef.current.focus();
     }
   }, [isSubmitting]);
@@ -40,25 +39,24 @@ const AddExpenseForm = ({ budgets }) => {
               type="text"
               name="newExpense"
               id="newExpense"
-              placeholder="eg.. Tea"
+              placeholder="e.g., Coffee"
               ref={focusRef}
               required
             />
-            <div className="grid-xs">
-              <label htmlFor="newExpenseAmount">Amount</label>
-              <input
-                type="number"
-                step="0.01"
-                inputMode="decimal"
-                name="newExpenseAmount"
-                id="newExpenseAmount"
-                placeholder="eg.. 17.5"
-                required
-              />
-            </div>
+          </div>
+          <div className="grid-xs">
+            <label htmlFor="newExpenseAmount">Amount</label>
+            <input
+              type="number"
+              step="0.01"
+              inputMode="decimal"
+              name="newExpenseAmount"
+              id="newExpenseAmount"
+              placeholder="e.g., 3.50"
+              required
+            />
           </div>
         </div>
-
         <div className="grid-xs" hidden={budgets.length === 1}>
           <label htmlFor="newExpenseBudget">Budget Category</label>
           <select name="newExpenseBudget" id="newExpenseBudget" required>
@@ -76,7 +74,7 @@ const AddExpenseForm = ({ budgets }) => {
         <input type="hidden" name="_action" value="createExpense" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {isSubmitting ? (
-            <span>Submitting...</span>
+            <span>Submitting…</span>
           ) : (
             <>
               <span>Add Expense</span>
@@ -88,5 +86,4 @@ const AddExpenseForm = ({ budgets }) => {
     </div>
   );
 };
-
 export default AddExpenseForm;

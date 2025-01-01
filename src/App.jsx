@@ -22,6 +22,9 @@ import ExpensesPage, {
   expensesLoader,
 } from "./components/ExpensesPage";
 
+import BudgetPage, { budgetAction, budgetLoader } from "./pages/BudgetPage";
+import { deleteBudget } from "./actions/deleteBudget";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +44,20 @@ const router = createBrowserRouter([
         element: <ExpensesPage />,
         loader: expensesLoader,
         action: expensesAction,
+        errorElement: <Error />,
+      },
+      {
+        path: "budget/:id",
+        element: <BudgetPage />,
+        loader: budgetLoader,
+        action: budgetAction,
+        errorElement: <Error />,
+        children: [
+          {
+            path: "delete",
+            action: deleteBudget,
+          },
+        ],
       },
       {
         path: "logout",
@@ -49,6 +66,8 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+
 
 const App = () => {
   return (
