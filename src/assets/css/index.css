@@ -420,33 +420,31 @@ select {
 
 /* form */
 .form-wrapper {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 48%;
-  flex: 1 1 48%;
-  max-width: 800px;
+  flex: 1 1 50%; /* Adjust flex properties */
+  max-width: 700px; /* Reduce the max width */
   position: relative;
-  display: -ms-grid;
   display: grid;
-  gap: var(--space-sm);
-  background-color: var(--bkg);
-  padding: var(--space-xl);
-  border-radius: var(--round-lg);
-  -webkit-box-shadow: 0.25em 0.3em 1em hsl(var(--muted) / 0.2);
-  box-shadow: 0.25em 0.3em 1em hsl(var(--muted) / 0.2);
-  border-top: 0.15em solid white;
-  border-left: 0.15em solid white;
-  border-right: 0.15em solid hsl(var(--bkg));
-  border-bottom: 0.15em solid hsl(var(--bkg));
+  gap: var(--space-md); /* Increase the gap */
+  background-color: hsl(var(--bkg) / 0.9); /* Add slight transparency */
+  padding: var(--space-lg); /* Reduce padding */
+  border-radius: var(--round-md); /* Reduce border radius */
+  box-shadow: 0.2em 0.25em 0.8em hsl(var(--muted) / 0.15); /* Subtle shadow */
+  border-top: 0.1em solid white;
+  border-left: 0.1em solid white;
+  border-right: 0.1em solid hsl(var(--bkg) / 0.8); /* Add slight transparency to borders */
+  border-bottom: 0.1em solid hsl(var(--bkg) / 0.8);
+  outline: 2px solid black; /* Added black outline */
 }
 
 .form-wrapper::before {
   content: "";
   position: absolute;
-  inset: 0.55rem;
-  border: 2px dashed hsl(var(--text));
-  border-radius: calc(var(--round-lg) * 0.6);
+  inset: 0.6rem; /* Adjust inset */
+  border: 1.5px dotted hsl(var(--text)); /* Change border style to dotted */
+  border-radius: calc(var(--round-md) * 0.6); /* Adjust border radius */
   z-index: -1;
 }
+
 
 .expense-inputs {
   display: -webkit-box;
