@@ -332,11 +332,11 @@ nav a {
   font-weight: bold;
 }
 
-@media screen and (max-width: 525px) {
+/* @media screen and (max-width: 525px) {
   nav a span {
     display: none;
   }
-}
+} */
 
 /* forms */
 label {
@@ -606,4 +606,11 @@ table a {
 /* toast */
 .Toastify__toast-body {
   font-size: var(--fs-300);
+}
+
+
+@media (max-width: 768px) {
+  .nav-text {
+    font-size: 0.875rem; /* Smaller font size for mobile */
+  }
 }
