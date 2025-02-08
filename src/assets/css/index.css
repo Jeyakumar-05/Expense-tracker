@@ -609,15 +609,16 @@ table a {
 }
 
 
+.nav-text {
+  font-size: 2rem;
+  font-weight: bold; /* Make the text bold */
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   .nav-text {
-    font-size: 0.875rem; /* Smaller font size for mobile */
+    font-size: 0.875rem;
   }
 }
 
-.nav-text{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: bold;
-}
+
