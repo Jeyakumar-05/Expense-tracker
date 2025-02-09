@@ -618,6 +618,7 @@ table a {
 @media (max-width: 768px) {
   .nav-text {
     font-size: 0.875rem;
+    font-style: italic;
     font-weight: bold;
   }
 }
