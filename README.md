@@ -1,4 +1,4 @@
-# Expense Tracker
+# Spendy
 
 ## Features
 - Create and manage budgets
