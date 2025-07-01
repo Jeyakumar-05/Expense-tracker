@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 // react-router imports
 import { useFetcher } from "react-router-dom";
 
-// library imports
+// library imports\
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 
 const AddExpenseForm = ({ budgets }) => {
@@ -74,7 +74,7 @@ const AddExpenseForm = ({ budgets }) => {
         <input type="hidden" name="_action" value="createExpense" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {isSubmitting ? (
-            <span>Submitting…</span>
+            <span>Submittingâ¦</span>
           ) : (
             <>
               <span>Add Expense</span>
